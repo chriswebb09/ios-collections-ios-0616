@@ -31,7 +31,7 @@
     return [[array reverseObjectEnumerator] allObjects];
 }
 
-- (NSString *)stringInBasicLeetString:(NSString *)string {
+- (NSString *)stringInBasicLeetFromString:(NSString *)string {
     return nil;
 }
 
@@ -54,11 +54,9 @@
 
 - (NSDictionary *)countsOfWordsInString:(NSArray *)array {
     NSMutableDictionary *counter = [[NSMutableDictionary alloc]init];
-    for (NSString *string in array) {
-        NSUInteger wordCount = [string count];
-        [counter setObject:string forKey:wordCount];
-    }
-    return nil;
+    [counter setObject:array forKey:wordCount];
+    NSLog(@"%@", counter);
+    return counter;
 }
 
 - (NSDictionary *)songsGroupedByArtistFromArray:(NSArray *)array {

@@ -14,7 +14,7 @@
 
 - (NSArray *)arrayByReversingArray:(NSArray *)array;
 
-- (NSString *)stringInBasicLeetString:(NSString *)string;
+- (NSString *)stringInBasicLeetFromString:(NSString *)string;
 
 - (NSArray *)splitArrayIntoNegativesAndPositives:(NSArray *)array;
 
