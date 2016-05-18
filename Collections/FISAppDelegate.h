@@ -22,11 +22,11 @@
 
 - (NSArray *)stringsBeginningWithAInArray:(NSArray *)array;
 
-- (NSUInteger)sumOfIntegersInArray:(NSArray *)array;
+- (NSInteger)sumOfIntegersInArray:(NSArray *)array;
 
 - (NSArray *)arrayByPluralizingStringsInArray:(NSArray *)array;
 
-- (NSDictionary *)countsOfWordsInString:(NSArray *)array;
+- (NSDictionary *)countsOfWordsInString:(NSString *)string;
 
 - (NSDictionary *)songsGroupedByArtistFromArray:(NSArray *)array;
 

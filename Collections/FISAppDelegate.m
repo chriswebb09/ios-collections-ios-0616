@@ -40,21 +40,36 @@
 }
 
 - (NSArray *)namesOfHobbitsInDictionary:(NSDictionary *)hobbits {
-    return nil;
+    NSArray *hobbitArray = [hobbits allKeys];
+    return hobbitArray;
 }
 
 - (NSArray *)stringsBeginningWithAInArray:(NSArray *)array {
-    return nil;
+    NSMutableArray *aArray = [[NSMutableArray alloc]init];
+    for (NSString *string in array) {
+        NSString * firstLetter = [string substringWithRange:[string rangeOfComposedCharacterSequenceAtIndex:0]];
+        if ([firstLetter isEqualToString:@"A"]) {
+            [aArray addObject:string];
+        }
+    }
+    NSLog(@"%@", aArray);
+    return aArray;
     
+}
+
+- (NSInteger)sumOfIntegersInArray:(NSArray *)array {
+    return [[array valueForKeyPath:@"@sum.self"] intValue];
 }
 
 - (NSArray *)arrayByPluralizingStringsInArray:(NSArray *)array {
     return nil;
 }
 
-- (NSDictionary *)countsOfWordsInString:(NSArray *)array {
+- (NSDictionary *)countsOfWordsInString:(NSString *)string {
     NSMutableDictionary *counter = [[NSMutableDictionary alloc]init];
-    [counter setObject:array forKey:wordCount];
+    NSUInteger wordCountInt = [string length];
+    NSNumber *wordCount = @(wordCountInt);
+    [counter setObject:string forKey:wordCount];
     NSLog(@"%@", counter);
     return counter;
 }
