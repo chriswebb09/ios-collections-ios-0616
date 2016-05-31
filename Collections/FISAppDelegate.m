@@ -32,11 +32,26 @@
 }
 
 - (NSString *)stringInBasicLeetFromString:(NSString *)string {
-    return nil;
+    NSDictionary *leetDictionary = @{@"a":@"4",@"s": @"5",@"l":@"1",@"i":@"1",@"e": @"3",@"t":@"7"};
+    NSMutableString *newString = [string mutableCopy];
+    for (NSMutableString *key in leetDictionary) {
+        newString = [newString stringByReplacingOccurrencesOfString:key withString:leetDictionary[key]];
+    }
+    return newString;
 }
 
 - (NSArray *)splitArrayIntoNegativesAndPositives:(NSArray *)array {
-    return nil;
+    
+    NSMutableArray *arrayArray = [[NSMutableArray alloc]init];
+    NSPredicate *negativePredicate = [NSPredicate predicateWithFormat:@"self < 0"];
+    NSPredicate *positivePredicate = [NSPredicate predicateWithFormat:@"self > 0"];
+    
+    NSArray *negativeArray = [array filteredArrayUsingPredicate:negativePredicate];
+    NSArray *positiveArray = [array filteredArrayUsingPredicate:positivePredicate];
+    [arrayArray addObject:negativeArray];
+    [arrayArray addObject:positiveArray];
+    
+    return arrayArray;
 }
 
 - (NSArray *)namesOfHobbitsInDictionary:(NSDictionary *)hobbits {
@@ -45,16 +60,9 @@
 }
 
 - (NSArray *)stringsBeginningWithAInArray:(NSArray *)array {
-    NSMutableArray *aArray = [[NSMutableArray alloc]init];
-    for (NSString *string in array) {
-        NSString * firstLetter = [string substringWithRange:[string rangeOfComposedCharacterSequenceAtIndex:0]];
-        if ([firstLetter isEqualToString:@"A"]) {
-            [aArray addObject:string];
-        }
-    }
-    NSLog(@"%@", aArray);
+    NSPredicate *aPredicate = [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] 'a'"];
+    NSArray *aArray = [array filteredArrayUsingPredicate:aPredicate];
     return aArray;
-    
 }
 
 - (NSInteger)sumOfIntegersInArray:(NSArray *)array {
